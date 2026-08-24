@@ -4,156 +4,589 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>NAZWA FIRMY | PROFESJONALNE USŁUGI</title>
+    <title>NAZWA FIRMY | Profesjonalne usługi</title>
+    <meta name="description" content="NAZWA FIRMY — profesjonalne usługi, wysoka jakość i indywidualne podejście do klienta.">
 
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            background: #f5f5f5;
-            color: #111;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b0d10;
+            color: #ffffff;
+            line-height: 1.6;
         }
 
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: min(1150px, 90%);
+            margin: auto;
+        }
+
+        /* ================= HEADER ================= */
+
         header {
-            background: #111;
-            color: white;
-            padding: 20px 8%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(11, 13, 16, 0.88);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        nav {
+            height: 78px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-size: 24px;
-            font-weight: bold;
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: 1px;
         }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 25px;
+        .logo span {
+            color: #d6a85f;
         }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #d7d7d7;
+            font-size: 14px;
+            transition: 0.25s;
+        }
+
+        .nav-links a:hover {
+            color: #d6a85f;
+        }
+
+        .nav-button {
+            background: #d6a85f;
+            color: #111 !important;
+            padding: 11px 18px;
+            border-radius: 7px;
+            font-weight: 700;
+        }
+
+        /* ================= HERO ================= */
 
         .hero {
-            min-height: 600px;
-            padding: 100px 8%;
+            min-height: 100vh;
             display: flex;
             align-items: center;
+            position: relative;
+            overflow: hidden;
             background:
-                linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
-                url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=80");
-            background-size: cover;
-            background-position: center;
-            color: white;
+                linear-gradient(90deg, rgba(7,9,11,0.96) 0%, rgba(7,9,11,0.78) 48%, rgba(7,9,11,0.35) 100%),
+                url("https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=2000&q=85")
+                center/cover;
         }
 
         .hero-content {
-            max-width: 700px;
+            max-width: 720px;
+            padding-top: 80px;
+        }
+
+        .badge {
+            display: inline-block;
+            border: 1px solid rgba(214,168,95,0.5);
+            color: #d6a85f;
+            padding: 8px 14px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
         }
 
         .hero h1 {
-            font-size: 56px;
-            margin-bottom: 20px;
+            font-size: clamp(46px, 7vw, 82px);
+            line-height: 0.98;
+            letter-spacing: -3px;
+            margin-bottom: 27px;
+        }
+
+        .hero h1 span {
+            color: #d6a85f;
         }
 
         .hero p {
-            font-size: 20px;
-            line-height: 1.6;
-            margin-bottom: 30px;
+            color: #c5c5c5;
+            max-width: 600px;
+            font-size: 18px;
+            margin-bottom: 35px;
         }
 
-        .button {
-            display: inline-block;
-            background: #e63946;
-            color: white;
-            padding: 16px 28px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
+        .buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
         }
+
+        .btn {
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: 0.25s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #d6a85f;
+            color: #111;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            background: #e3b970;
+        }
+
+        .btn-secondary {
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            border-color: #d6a85f;
+            color: #d6a85f;
+        }
+
+        /* ================= STATS ================= */
+
+        .stats {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            background: #101318;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .stat {
+            padding: 30px 20px;
+            text-align: center;
+            border-right: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 30px;
+            color: #d6a85f;
+            margin-bottom: 3px;
+        }
+
+        .stat span {
+            color: #888;
+            font-size: 13px;
+        }
+
+        /* ================= SECTIONS ================= */
 
         section {
-            padding: 80px 8%;
+            padding: 110px 0;
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 36px;
-            margin-bottom: 50px;
+        .section-heading {
+            max-width: 650px;
+            margin-bottom: 55px;
         }
+
+        .section-label {
+            color: #d6a85f;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 14px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(34px, 5vw, 52px);
+            line-height: 1.08;
+            margin-bottom: 18px;
+        }
+
+        .section-heading p {
+            color: #969696;
+        }
+
+        /* ================= SERVICES ================= */
 
         .services {
+            background: #0b0d10;
+        }
+
+        .service-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+            gap: 18px;
         }
 
-        .service {
-            background: white;
+        .service-card {
+            background: #111419;
+            border: 1px solid rgba(255,255,255,0.07);
             padding: 35px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,.08);
+            border-radius: 13px;
+            transition: 0.3s;
         }
 
-        .service h3 {
-            margin-bottom: 15px;
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(214,168,95,0.45);
+        }
+
+        .service-number {
+            color: #d6a85f;
+            font-weight: 800;
+            margin-bottom: 25px;
+        }
+
+        .service-card h3 {
             font-size: 22px;
+            margin-bottom: 12px;
         }
 
-        .service p {
-            color: #555;
-            line-height: 1.6;
+        .service-card p {
+            color: #888;
+            font-size: 14px;
         }
+
+        /* ================= ABOUT ================= */
 
         .about {
-            background: #111;
-            color: white;
+            background: #101318;
         }
 
-        .about-content {
-            max-width: 800px;
-            margin: auto;
-            text-align: center;
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
         }
 
-        .about p {
-            line-height: 1.8;
+        .about-image {
+            height: 520px;
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        .about-image img {
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-text h2 {
+            font-size: clamp(35px, 5vw, 55px);
+            line-height: 1.05;
+            margin-bottom: 25px;
+        }
+
+        .about-text h2 span {
+            color: #d6a85f;
+        }
+
+        .about-text p {
+            color: #999;
+            margin-bottom: 25px;
+        }
+
+        .check-list {
+            list-style: none;
+        }
+
+        .check-list li {
+            margin: 15px 0;
             color: #ddd;
         }
 
-        .contact {
-            text-align: center;
-            background: white;
+        .check-list li::before {
+            content: "✓";
+            color: #d6a85f;
+            font-weight: bold;
+            margin-right: 12px;
         }
 
-        .contact p {
-            margin: 15px 0;
-            font-size: 18px;
+        /* ================= GALLERY ================= */
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
         }
+
+        .gallery-item {
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .gallery-item img {
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.06);
+        }
+
+        /* ================= PROCESS ================= */
+
+        .process {
+            background: #101318;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .process-card {
+            border-left: 2px solid #d6a85f;
+            padding: 10px 25px 10px 28px;
+        }
+
+        .process-card strong {
+            font-size: 42px;
+            color: #d6a85f;
+            opacity: 0.8;
+        }
+
+        .process-card h3 {
+            margin: 10px 0;
+            font-size: 21px;
+        }
+
+        .process-card p {
+            color: #888;
+            font-size: 14px;
+        }
+
+        /* ================= REVIEWS ================= */
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .review {
+            background: #111419;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .stars {
+            color: #d6a85f;
+            letter-spacing: 3px;
+            margin-bottom: 18px;
+        }
+
+        .review p {
+            color: #b0b0b0;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .review strong {
+            font-size: 14px;
+        }
+
+        /* ================= CTA ================= */
+
+        .cta {
+            padding: 90px 0;
+        }
+
+        .cta-box {
+            background:
+                linear-gradient(100deg, rgba(214,168,95,0.14), rgba(214,168,95,0.03)),
+                #111419;
+            border: 1px solid rgba(214,168,95,0.25);
+            border-radius: 18px;
+            padding: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .cta-box h2 {
+            font-size: clamp(32px, 5vw, 50px);
+            line-height: 1.05;
+            margin-bottom: 12px;
+        }
+
+        .cta-box p {
+            color: #888;
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact {
+            background: #101318;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .contact-card {
+            background: #0b0d10;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.07);
+        }
+
+        .contact-card small {
+            color: #777;
+            display: block;
+            margin-bottom: 7px;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        .contact-card a,
+        .contact-card span {
+            font-size: 19px;
+            font-weight: 700;
+        }
+
+        /* ================= FOOTER ================= */
 
         footer {
-            background: #111;
-            color: #aaa;
-            text-align: center;
-            padding: 25px;
+            background: #08090b;
+            border-top: 1px solid rgba(255,255,255,0.07);
+            padding: 35px 0;
         }
 
-        @media (max-width: 800px) {
-            .hero h1 {
-                font-size: 40px;
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        footer p {
+            color: #666;
+            font-size: 13px;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 850px) {
+
+            .nav-links {
+                display: none;
             }
 
-            .services {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat:nth-child(2) {
+                border-right: none;
+            }
+
+            .stat:nth-child(3),
+            .stat:nth-child(4) {
+                border-top: 1px solid rgba(255,255,255,0.08);
+            }
+
+            .service-grid,
+            .process-grid,
+            .reviews-grid {
                 grid-template-columns: 1fr;
             }
 
-            nav {
-                display: none;
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                height: 380px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .gallery-item {
+                height: 220px;
+            }
+
+            .cta-box {
+                padding: 45px 30px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 520px) {
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item {
+                height: 260px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: flex-start;
             }
         }
     </style>
@@ -161,82 +594,64 @@
 
 <body>
 
+<!-- ================= HEADER ================= -->
+
 <header>
+    <div class="container">
+        <nav>
+            <a href="#" class="logo">
+                NAZWA <span>FIRMY</span>
+            </a>
 
-    <!-- ZMIEŃ NAZWĘ FIRMY -->
-    <div class="logo">NAZWA FIRMY</div>
-
-    <nav>
-        <a href="#uslugi">Usługi</a>
-        <a href="#onas">O nas</a>
-        <a href="#kontakt">Kontakt</a>
-    </nav>
-
+            <ul class="nav-links">
+                <li><a href="#uslugi">Usługi</a></li>
+                <li><a href="#onas">O nas</a></li>
+                <li><a href="#galeria">Realizacje</a></li>
+                <li><a href="#opinie">Opinie</a></li>
+                <li>
+                    <a href="#kontakt" class="nav-button">
+                        Kontakt
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 </header>
 
 
+<!-- ================= HERO ================= -->
+
+<main>
+
 <section class="hero">
 
-    <div class="hero-content">
+    <div class="container">
 
-        <!-- ZMIEŃ TEKST POD KONKRETNĄ FIRMĘ -->
+        <div class="hero-content">
 
-        <h1>Profesjonalne usługi w Gdańsku</h1>
+            <div class="badge">
+                Profesjonalizm • Jakość • Doświadczenie
+            </div>
 
-        <p>
-            Wysoka jakość, profesjonalne podejście
-            i pełne zaangażowanie w każde zlecenie.
-        </p>
-
-        <a class="button" href="#kontakt">
-            Skontaktuj się
-        </a>
-
-    </div>
-
-</section>
-
-
-<section id="uslugi">
-
-    <h2 class="section-title">
-        Nasze usługi
-    </h2>
-
-    <div class="services">
-
-        <div class="service">
-
-            <h3>Usługa 1</h3>
+            <h1>
+                NAZWA<br>
+                <span>FIRMY</span>
+            </h1>
 
             <p>
-                Opis pierwszej usługi oferowanej
-                przez firmę.
+                Profesjonalne usługi dopasowane do potrzeb naszych klientów.
+                Stawiamy na wysoką jakość, dokładność i indywidualne podejście.
             </p>
 
-        </div>
+            <div class="buttons">
+                <a href="#kontakt" class="btn btn-primary">
+                    Skontaktuj się
+                </a>
 
-
-        <div class="service">
-
-            <h3>Usługa 2</h3>
-
-            <p>
-                Opis drugiej usługi oferowanej
-                przez firmę.
-            </p>
-
-        </div>
-
-
-        <div class="service">
-
-            <h3>Usługa 3</h3>
-
-            <p>
-                Opis trzeciej usługi oferowanej
-                przez firmę.
-            </p>
+                <a href="#uslugi" class="btn btn-secondary">
+                    Zobacz ofertę
+                </a>
+            </div>
 
         </div>
 
@@ -244,53 +659,569 @@
 
 </section>
 
+
+<!-- ================= STATS ================= -->
+
+<section class="stats">
+
+    <div class="container">
+
+        <div class="stats-grid">
+
+            <div class="stat">
+                <strong>10+</strong>
+                <span>Lat doświadczenia</span>
+            </div>
+
+            <div class="stat">
+                <strong>500+</strong>
+                <span>Zadowolonych klientów</span>
+            </div>
+
+            <div class="stat">
+                <strong>100%</strong>
+                <span>Zaangażowania</span>
+            </div>
+
+            <div class="stat">
+                <strong>24/7</strong>
+                <span>Kontakt</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SERVICES ================= -->
+
+<section class="services" id="uslugi">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                Oferta
+            </div>
+
+            <h2>
+                Co możemy dla Ciebie zrobić?
+            </h2>
+
+            <p>
+                Kompleksowa obsługa i profesjonalne wykonanie.
+                Wybierz usługę, której potrzebujesz.
+            </p>
+
+        </div>
+
+
+        <div class="service-grid">
+
+            <div class="service-card">
+
+                <div class="service-number">
+                    01
+                </div>
+
+                <h3>
+                    Usługa podstawowa
+                </h3>
+
+                <p>
+                    Profesjonalna realizacja z dbałością
+                    o każdy szczegół.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-number">
+                    02
+                </div>
+
+                <h3>
+                    Usługa premium
+                </h3>
+
+                <p>
+                    Rozszerzona oferta dla klientów,
+                    którzy oczekują najwyższej jakości.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-number">
+                    03
+                </div>
+
+                <h3>
+                    Indywidualna oferta
+                </h3>
+
+                <p>
+                    Nie znalazłeś tego, czego szukasz?
+                    Przygotujemy rozwiązanie dopasowane do Ciebie.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
 
 <section class="about" id="onas">
 
-    <div class="about-content">
+    <div class="container">
 
-        <h2 class="section-title">
-            Dlaczego my?
-        </h2>
+        <div class="about-grid">
 
-        <p>
-            Jesteśmy firmą stawiającą na jakość,
-            profesjonalizm oraz zadowolenie klienta.
-            Każde zlecenie realizujemy z pełnym
-            zaangażowaniem i dbałością o szczegóły.
-        </p>
+            <div class="about-image">
+
+                <!-- ZDJĘCIE TYMCZASOWE -->
+                <img
+                    src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85"
+                    alt="NAZWA FIRMY"
+                >
+
+            </div>
+
+
+            <div class="about-text">
+
+                <div class="section-label">
+                    O firmie
+                </div>
+
+                <h2>
+                    Jakość, której możesz <span>zaufać.</span>
+                </h2>
+
+                <p>
+                    NAZWA FIRMY to firma stawiająca na profesjonalizm,
+                    terminowość oraz najwyższą jakość wykonywanych usług.
+                </p>
+
+                <p>
+                    Do każdego klienta podchodzimy indywidualnie,
+                    dzięki czemu możemy dopasować rozwiązanie
+                    dokładnie do jego potrzeb.
+                </p>
+
+                <ul class="check-list">
+
+                    <li>
+                        Profesjonalne wykonanie
+                    </li>
+
+                    <li>
+                        Indywidualne podejście
+                    </li>
+
+                    <li>
+                        Terminowa realizacja
+                    </li>
+
+                    <li>
+                        Wysoka jakość usług
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
 
     </div>
 
 </section>
 
 
-<section class="contact" id="kontakt">
+<!-- ================= GALLERY ================= -->
 
-    <h2 class="section-title">
-        Skontaktuj się z nami
-    </h2>
+<section id="galeria">
 
-    <!-- ZMIEŃ DANE FIRMY -->
+    <div class="container">
 
-    <p>📞 +48 123 456 789</p>
+        <div class="section-heading">
 
-    <p>📧 kontakt@firma.pl</p>
+            <div class="section-label">
+                Realizacje
+            </div>
 
-    <p>📍 Gdańsk</p>
+            <h2>
+                Zobacz nasze realizacje.
+            </h2>
 
-    <br>
+            <p>
+                Poniższe zdjęcia są przykładowe.
+                Po wdrożeniu strony można zastąpić je
+                zdjęciami firmy i jej realizacji.
+            </p>
 
-    <a class="button" href="tel:+48123456789">
-        Zadzwoń teraz
-    </a>
+        </div>
+
+
+        <div class="gallery-grid">
+
+            <div class="gallery-item">
+                <img
+                    src="https://images.unsplash.com/photo-1497366811360-1d9b6d0f3f5f?auto=format&fit=crop&w=1000&q=85"
+                    alt="Realizacja"
+                >
+            </div>
+
+            <div class="gallery-item">
+                <img
+                    src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=85"
+                    alt="Realizacja"
+                >
+            </div>
+
+            <div class="gallery-item">
+                <img
+                    src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=85"
+                    alt="Realizacja"
+                >
+            </div>
+
+            <div class="gallery-item">
+                <img
+                    src="https://images.unsplash.com/photo-1497366412874-3415097a27e7?auto=format&fit=crop&w=1000&q=85"
+                    alt="Realizacja"
+                >
+            </div>
+
+            <div class="gallery-item">
+                <img
+                    src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=85"
+                    alt="Realizacja"
+                >
+            </div>
+
+            <div class="gallery-item">
+                <img
+                    src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=85"
+                    alt="Realizacja"
+                >
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
 
+<!-- ================= PROCESS ================= -->
+
+<section class="process">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                Jak działamy
+            </div>
+
+            <h2>
+                Prosty proces.<br>
+                Świetny efekt.
+            </h2>
+
+        </div>
+
+
+        <div class="process-grid">
+
+            <div class="process-card">
+
+                <strong>01</strong>
+
+                <h3>
+                    Kontakt
+                </h3>
+
+                <p>
+                    Skontaktuj się z nami i opowiedz,
+                    czego potrzebujesz.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <strong>02</strong>
+
+                <h3>
+                    Wycena
+                </h3>
+
+                <p>
+                    Przygotujemy indywidualną ofertę
+                    dopasowaną do Twoich potrzeb.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <strong>03</strong>
+
+                <h3>
+                    Realizacja
+                </h3>
+
+                <p>
+                    Wykonujemy usługę zgodnie
+                    z ustaleniami i dbamy o szczegóły.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= REVIEWS ================= -->
+
+<section id="opinie">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                Opinie
+            </div>
+
+            <h2>
+                Co mówią nasi klienci?
+            </h2>
+
+        </div>
+
+
+        <div class="reviews-grid">
+
+            <div class="review">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    „Bardzo profesjonalna obsługa.
+                    Wszystko wykonane dokładnie i terminowo.
+                    Zdecydowanie polecam.”
+                </p>
+
+                <strong>
+                    — Klient
+                </strong>
+
+            </div>
+
+
+            <div class="review">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    „Świetny kontakt i bardzo dobra jakość
+                    wykonanej usługi. Na pewno wrócę.”
+                </p>
+
+                <strong>
+                    — Klient
+                </strong>
+
+            </div>
+
+
+            <div class="review">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    „Firma godna polecenia.
+                    Wszystko przebiegło szybko,
+                    sprawnie i bez problemów.”
+                </p>
+
+                <strong>
+                    — Klient
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="cta">
+
+    <div class="container">
+
+        <div class="cta-box">
+
+            <div>
+
+                <h2>
+                    Potrzebujesz<br>
+                    profesjonalnej usługi?
+                </h2>
+
+                <p>
+                    Skontaktuj się z nami i poznaj indywidualną ofertę.
+                </p>
+
+            </div>
+
+            <a href="#kontakt" class="btn btn-primary">
+                Napisz do nas →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="contact" id="kontakt">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                Kontakt
+            </div>
+
+            <h2>
+                Porozmawiajmy.
+            </h2>
+
+            <p>
+                Masz pytanie lub chcesz poznać cenę?
+                Skontaktuj się z nami.
+            </p>
+
+        </div>
+
+
+        <div class="contact-grid">
+
+            <div class="contact-card">
+
+                <small>
+                    Telefon
+                </small>
+
+                <a href="tel:+48123456789">
+                    +48 123 456 789
+                </a>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <small>
+                    E-mail
+                </small>
+
+                <a href="mailto:kontakt@nazwafirmy.pl">
+                    kontakt@nazwafirmy.pl
+                </a>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <small>
+                    Adres
+                </small>
+
+                <span>
+                    Gdańsk, Polska
+                </span>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <small>
+                    Godziny otwarcia
+                </small>
+
+                <span>
+                    Pon. – Pt. 08:00 – 18:00
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
 <footer>
 
-    © 2026 NAZWA FIRMY
+    <div class="container">
+
+        <div class="footer-content">
+
+            <a href="#" class="logo">
+                NAZWA <span>FIRMY</span>
+            </a>
+
+            <p>
+                © 2026 NAZWA FIRMY. Wszelkie prawa zastrzeżone.
+            </p>
+
+        </div>
+
+    </div>
 
 </footer>
 
